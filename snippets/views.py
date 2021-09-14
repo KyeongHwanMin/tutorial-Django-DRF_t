@@ -70,8 +70,7 @@ def snippet_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-def snippet_list(request, format=None):
-def snippet_detail(request, pk, format=None):
+
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -99,5 +98,3 @@ def snippet_detail(request, pk):
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-def snippet_list(request, format=None):
-def snippet_detail(request, pk, format=None):
