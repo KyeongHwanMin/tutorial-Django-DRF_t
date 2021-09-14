@@ -17,7 +17,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 ]
 
-
 snippet_list = SnippetViewSet.as_view({
     'get': 'list',
     'post': 'create'
