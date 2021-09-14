@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework import renderers
+from rest_framework import viewsets
 
 
 class SnippetHighlight(generics.GenericAPIView):
@@ -28,12 +29,10 @@ def api_root(request, format=None):
     })
 
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveAPIView):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    이 viewset은 `list` 와 `retrieve` 액션을 자동으로 제공한다
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
